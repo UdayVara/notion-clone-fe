@@ -92,7 +92,7 @@ function Signin() {
           href={"/signup"}
           className="text-center mb-3 hover:font-semibold transition-all mt-3"
         >
-          Don't Have an Account ?
+          Don&rsquo;t Have an Account ?
         </Link>
       </div>
     </>
