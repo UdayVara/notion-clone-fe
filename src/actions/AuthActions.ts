@@ -33,17 +33,7 @@ export const newUser = async (data: {
     const result = await axiosInstance.post("/user/signup", data);
 
     if (result.data.statusCode == 201) {
-      const res = await signIn("credentials", {
-        redirect: false,
-        email: data.email,
-        password: data.password,
-      });
-      const user = await auth();
-      if (user) {
-        return { success: true, message: "Signed in Successfull" };
-      } else {
-        return { success: false, message: res.message };
-      }
+      return {success:true,message:"Account Created Successfully."}
     } else {
       throw new Error(result.data.message || "Internal Server Error");
     }

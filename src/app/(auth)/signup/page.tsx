@@ -25,10 +25,9 @@ function Signin() {
   const router = useRouter()
   const onSubmit: SubmitHandler<signUpSchemaType> = async(data) => {
     const res = await newUser(data)
-
     if(res.success){
-      toast.success("Signup Successfull")
-      router.push("/document")
+      toast.success(res.message || "Signup Successfull")
+      router.push("/signin")
     }else{
       console.debug("Failure" + res.message + res)
       toast.error(res.message)
@@ -56,7 +55,7 @@ function Signin() {
 
       <div className="lg:w-[450px] rounded md:w-[500px] w-full md:px-6 py-3 px-4 max-w-[95%] mx-auto bg-white dark:bg-neutral-800 dark:border-0 border shadow-sm flex mt-16 flex-col gap-2 ">
         <h1 className=" text-center text-2xl font-semibold mb-5">
-          Sign in For Notion
+          Sign Up For Notion
         </h1>
         <div className="flex flex-col gap-1 my-1">
           <h3>Name </h3>
