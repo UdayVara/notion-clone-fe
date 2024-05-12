@@ -83,7 +83,7 @@ function Signin() {
         <div className="flex flex-col gap-1 my-1">
           <h3>Password </h3>
           <input
-            type="text"
+            type="password"
             {...register("password")}
             className="py-1 px-1 bg-slate-100 dark:bg-neutral-700 dark:focus:outline-none rounded"
           />
