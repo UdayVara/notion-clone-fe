@@ -2,7 +2,7 @@
 import { fetchDocuments, getArchives, updateArchieve } from "@/actions/DocumentActions";
 import { set } from "@/redux/Slice/documentsSlice";
 import React, { useEffect, useState } from "react";
-import toast from "react-hot-toast";
+import { toast } from "sonner"
 import { ImUndo2 } from "react-icons/im";
 import { useDispatch } from "react-redux";
 

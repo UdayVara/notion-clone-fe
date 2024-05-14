@@ -11,7 +11,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpSchemaType } from "@/schemas/auth";
 import { newUser } from "@/actions/AuthActions";
 import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
+import { toast } from "sonner"
+
 
 function Signin() {
   const theme = useTheme();
@@ -27,7 +28,7 @@ function Signin() {
     const res = await newUser(data)
     if(res.success){
       toast.success(res.message || "Signup Successfull")
-      router.push("/signin")
+      router.replace("/signin")
     }else{
       console.debug("Failure" + res.message + res)
       toast.error(res.message)

@@ -22,7 +22,7 @@ import {
   renameDocument,
   updateArchieve,
 } from "@/actions/DocumentActions";
-import toast from "react-hot-toast";
+import { toast } from "sonner"
 import { useDispatch, useSelector } from "react-redux";
 import { set, setSelected } from "@/redux/Slice/documentsSlice";
 import { useRouter } from "next/navigation";

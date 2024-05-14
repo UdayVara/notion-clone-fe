@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/Providers/ThemeProvider";
 import ReduxProvider from "@/Providers/ReduxProvider";
 import ToastProvider from "@/Providers/ToastProvider";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,8 +21,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <ToastProvider />
+        <div>
+          <Toaster  toastOptions={{
+            classNames:{
+              toast:"bg-black dark:bg-white border-none ",
+              title:"text-base dark:text-black text-white",
+              icon:"text-white dark:text-black",
+              closeButton:"text-white dark:text-black"
+            }
+          }}  position="bottom-right"  className="text-2xl"  />
+        </div>
+        <ThemeProvider attribute="class" defaultTheme="system">
+          {/* <ToastProvider />
+           */}
           <ReduxProvider>{children}</ReduxProvider>
         </ThemeProvider>
       </body>

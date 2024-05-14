@@ -2,7 +2,7 @@
 import { getDocumentById, saveContent } from "@/actions/DocumentActions";
 import { RootState } from "@/redux/store";
 import React, { useEffect, useState } from "react";
-import toast from "react-hot-toast";
+import { toast } from "sonner"
 import { useSelector } from "react-redux";
 import "@blocknote/core/fonts/inter.css";
 import { useCreateBlockNote } from "@blocknote/react";

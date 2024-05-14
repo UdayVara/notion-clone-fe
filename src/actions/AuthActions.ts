@@ -9,14 +9,14 @@ export const login = async (data: { email: string; password: string }) => {
       redirect: false,
       ...data,
     });
-    const user = await auth();
-    if (user) {
+    
+    if (res) {
       return { success: true, message: "Signed in Successfull" };
     } else {
       return { success: false, message: res.message };
     }
   } catch (error: any) {
-    console.log(error);
+    console.log("server message",error.cause.err.message);
     return {
       success: false,
       message: error.cause.err.message || "Internal Server Error",

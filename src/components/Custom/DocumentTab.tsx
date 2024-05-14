@@ -10,7 +10,7 @@ import { CiSearch } from "react-icons/ci";
 import { IoSettingsOutline } from "react-icons/io5";
 import { CiCirclePlus } from "react-icons/ci";
 import { addDocument, fetchDocuments } from "@/actions/DocumentActions";
-import toast from "react-hot-toast";
+import { toast } from "sonner"
 import DocumentList from "./DocumentList";
 import { IoArchiveOutline } from "react-icons/io5";
 

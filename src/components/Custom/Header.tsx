@@ -24,6 +24,7 @@ function Header() {
   const sidebar = useSelector((root: RootState) => root.sidebar);
   const dispatch = useDispatch<AppDispatch>();
   const [user,setUser] = useState<any>()
+  const [mount,setMount] = useState(false)
   const handleSidebar = () => {
     if (sidebar.value) {
       dispatch(close());
@@ -41,10 +42,11 @@ function Header() {
 console.debug(user)
   useEffect(()=>{
     getUserClient()
+    setMount(true)
   },[])
   return (
     <>
-      <div className="w-full fixed top-0 lg:pr-10 lg:pl-7 md:pr-5 md:pl-3 py-2 bg-white flex justify-between items-center dark:bg-[#111111] dark:text-white">
+      {mount && <div className="w-full fixed top-0 lg:pr-10 lg:pl-7 md:pr-5 md:pl-3 py-2 bg-white flex justify-between items-center dark:bg-[#111111] dark:text-white">
         <div className="flex flex-row gap-2 items-center">
           {url != "/" && <RxHamburgerMenu onClick={handleSidebar} />}
           <h4 className="text-black dark:text-white flex  items-center gap-1 text-lg font-semibold">
@@ -67,7 +69,7 @@ console.debug(user)
           <Link href={"/document"}  className="hover:font-semibold transition-all">Home</Link> }
           <ModeToggle />
         </div>
-      </div>
+      </div>}
     </>
   );
 }

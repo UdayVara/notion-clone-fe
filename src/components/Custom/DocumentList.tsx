@@ -2,7 +2,7 @@
 
 import { addDocument, fetchDocuments } from "@/actions/DocumentActions";
 import React, { useEffect, useState } from "react";
-import toast from "react-hot-toast";
+import { toast } from "sonner"
 import DocumentCard from "./DocumentCard";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store";

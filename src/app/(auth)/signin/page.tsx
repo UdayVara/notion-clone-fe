@@ -11,7 +11,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { signInSchemaType } from "@/schemas/auth";
 import { login } from "@/actions/AuthActions";
 import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
+import { toast } from "sonner"
+
 
 function Signin() {
   const theme = useTheme();
@@ -29,7 +30,8 @@ function Signin() {
       toast.success("Signin Successfull")
       router.push("/document")
     }else{
-      console.log("failure" + res.message + res)
+      console.debug(res)
+      console.log("failure" + res.message.message + res)
       toast.error(res.message)
 
     }
@@ -39,7 +41,7 @@ function Signin() {
     <>
       <div className="w-full bg-white dark:bg-[#111111] px-2 py-2 flex flex-row items-center justify-between ">
         <Link href={"/"} className="text-black  dark:text-white flex  items-center gap-1 text-lg font-semibold py-2">
-          <Image
+          <img
             src={`/Images/${
               theme.resolvedTheme == "dark"
                 ? "notion-image-white.svg"

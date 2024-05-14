@@ -21,7 +21,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           }
         } catch (error) {
           console.log("inside catch",error);
-          throw new Error("Internal Server Error");
+          throw new Error(error?.toString() || "Internal Server Error");
         }
       },
     }),
