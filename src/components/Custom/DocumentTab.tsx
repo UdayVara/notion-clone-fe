@@ -98,8 +98,8 @@ function DocumentTab() {
             sidebar.value ? "flex" : "hidden"
           } justify-between pt-3 pb-3 border-b border-b-neutral-600`}
         >
-          <div className="flex flex-row items-center gap-2 ">
-            <div className="rounded-full w-10 h-10 bg-slate-100 flex items-center justify-center text-lg dark:bg-neutral-800">
+          <div className="flex flex-row items-center gap-2 ml-1 ">
+            <div className="rounded-full w-10 h-10 bg-slate-200 flex items-center justify-center text-lg dark:bg-neutral-800">
               {username?.charAt(0)}
             </div>
             <h3>{username}</h3>

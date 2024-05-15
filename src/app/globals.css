@@ -3,6 +3,6 @@
 @tailwind utilities;
 
 html,body,:root{
-  @apply w-full h-full bg-[#F9F7F9] dark:bg-neutral-900
+  @apply w-full h-full bg-[#f4f4f5] dark:bg-neutral-900
 }
   

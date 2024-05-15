@@ -6,9 +6,10 @@ import { toast } from "sonner"
 import { useSelector } from "react-redux";
 import "@blocknote/core/fonts/inter.css";
 import { useCreateBlockNote } from "@blocknote/react";
-import { BlockNoteView } from "@blocknote/mantine";
+import { BlockNoteView, Theme, darkDefaultTheme, lightDefaultTheme } from "@blocknote/mantine";
 import "@blocknote/mantine/style.css";
 import { Button } from "../ui/button";
+import { useTheme } from "next-themes";
 
 const initialData = [
   {
@@ -45,6 +46,52 @@ function Editor() {
   const [document, setDocument] = useState<any>({});
   const [content, setContent] = useState<any>(initialData);
 
+  const lightRedTheme = {
+    colors: {
+      editor: {
+        text: "#222222",
+        background: "#ffeeee",
+      },
+      menu: {
+        text: "#ffffff",
+        background: "#e2e8f0",
+      },
+      tooltip: {
+        text: "#ffffff",
+        background: "#e2e8f0",
+      },
+      hovered: {
+        text: "#ffffff",
+        background: "#b00000",
+      },
+      selected: {
+        text: "#ffffff",
+        background: "#c50000",
+      },
+      disabled: {
+        text: "#9b0000",
+        background: "#7d0000",
+      },
+      shadow: "#640000",
+      border: "#870000",
+      sideMenu: "#bababa",
+      highlights: lightDefaultTheme.colors!.highlights,
+    },
+    borderRadius: 4,
+    fontFamily: "Helvetica Neue, sans-serif",
+  } satisfies Theme;
+  const darkRedTheme = {
+    ...lightRedTheme,
+    colors: {
+      ...lightRedTheme.colors,
+      editor: {
+        text: "#1f2937",
+        background: "#e2e8f0",
+      },
+      sideMenu: "#ffffff",
+      highlights: darkDefaultTheme.colors!.highlights,
+    },
+  } satisfies Theme;
   const documentObj = useSelector((store: RootState) => store.documents);
   async function uploadFile(file: File) {
     const body = new FormData();
@@ -95,6 +142,13 @@ console.debug(content,"content")
     const markdown = await editor.blocksToMarkdownLossy(editor.document);
     setContent(markdown);
   };
+
+  const redTheme = {
+    light: lightRedTheme,
+    dark: darkRedTheme,
+  };
+  const theme:any = useTheme()
+  console.debug(theme,"theme")
   return (
     <>
       <div className="pt-16 px-2">
@@ -104,7 +158,9 @@ console.debug(content,"content")
           linkToolbar
           editor={editor}
           className="mt-10"
+          theme={theme?.resolvedTheme || "dark"}
           content={content}
+          
         />
         <Button className="ms-auto block mr-4 mt-8" onClick={handleSave}>
           Save

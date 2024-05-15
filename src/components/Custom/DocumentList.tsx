@@ -6,7 +6,7 @@ import { toast } from "sonner"
 import DocumentCard from "./DocumentCard";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
-import { set } from "@/redux/Slice/documentsSlice";
+import { set, setSelected } from "@/redux/Slice/documentsSlice";
 
 function DocumentList() {
   const documents:any = useSelector((store:RootState)=>store.documents)
@@ -15,6 +15,7 @@ function DocumentList() {
     const res = await fetchDocuments();
 
     if (res.success) {
+      dispatch(setSelected(res.documents[0]?.id || ""))
       // console.debug(res.documents);
       dispatch(set(res.documents))
       // toast.success(res.message);

@@ -28,7 +28,7 @@ function Signin() {
     const res = await login(data)
     if(res.success){
       toast.success("Signin Successfull")
-      router.push("/document")
+      router.replace("/document")
     }else{
       console.debug(res)
       console.log("failure" + res.message.message + res)
