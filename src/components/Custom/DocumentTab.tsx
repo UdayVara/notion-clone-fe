@@ -33,6 +33,7 @@ import Archives from "./Dialog/Archives";
 
 function DocumentTab() {
   const [username, setUsername] = useState<any>();
+  const [searchOpen,setSearchOpen] = useState(false)
   const sidebar: any = useSelector((store: RootState) => store.sidebar);
   const dispatch = useDispatch<AppDispatch>();
   const handleSidebar = () => {
@@ -123,8 +124,8 @@ function DocumentTab() {
           } px-2 py-2 gap-2`}
         >
           <div className="relative ">
-            <Dialog>
-              <DialogTrigger className="w-full">
+            <Dialog open={searchOpen} onOpenChange={()=>{setSearchOpen(!searchOpen)}}>
+              <DialogTrigger className="w-full" onClick={()=>{setSearchOpen(true)}} >
                 <>
                   <CiSearch className="text-3xl h-full absolute top-0 left-0 bg-slate-50 dark:bg-neutral-700 p-1 border border-neutral-400 rounded" />
                   <h1 className="outline-none pl-10 text-md focus:outline-none bg-slate-100 peer dark:bg-neutral-800 focus:bg-neutral-200 text-neutral-400 dark:focus:bg-neutral-800 w-full py-1 rounded cursor-pointer text-start">
@@ -136,7 +137,7 @@ function DocumentTab() {
                 <DialogHeader>
                   <DialogTitle>Search Documents</DialogTitle>
                   <DialogDescription>
-                    <Search />
+                    <Search toggle={setSearchOpen}/>
                   </DialogDescription>
                 </DialogHeader>
               </DialogContent>

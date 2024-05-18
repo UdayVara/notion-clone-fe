@@ -15,7 +15,10 @@ function DocumentList() {
     const res = await fetchDocuments();
 
     if (res.success) {
-      dispatch(setSelected(res.documents[0]?.id || ""))
+      if(res.documents && res.documents.length > 0){
+
+        dispatch(setSelected(res?.documents[0]?.id || ""))
+      }
       // console.debug(res.documents);
       dispatch(set(res.documents))
       // toast.success(res.message);

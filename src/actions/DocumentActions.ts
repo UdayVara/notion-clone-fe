@@ -8,7 +8,7 @@ export const addDocument = async (parentDocument?: string) => {
     });
 
     if (res.data?.statusCode == 201) {
-      return { success: true, message: res.data?.message };
+      return { success: true, message: res.data?.message,document:res.data?.document };
     } else {
       return { success: false, message: res.data?.message };
     }
@@ -18,10 +18,11 @@ export const addDocument = async (parentDocument?: string) => {
   }
 };
 
-export const fetchDocuments = async () => {
+export const fetchDocuments = async (query?:string,getRaw?:boolean) => {
   try {
-    const res = await axiosInstance.get("/document");
-
+    let params = {searchTerm:query || "",getRaw:getRaw || false}
+    const res = await axiosInstance.get("/document",{params});
+    console.log(res,"res")
     if (res.data?.statusCode == 201) {
       return {
         success: true,

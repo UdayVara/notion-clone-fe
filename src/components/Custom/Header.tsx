@@ -50,17 +50,19 @@ console.debug(user)
         <div className="flex flex-row gap-2 items-center">
           {url != "/" && <RxHamburgerMenu onClick={handleSidebar} />}
           <h4 className="text-black dark:text-white flex  items-center gap-1 text-lg font-semibold">
+            <Link href={""}>
             <Image
               src={`/Images/${
                 theme.resolvedTheme == "dark"
                   ? "notion-image-white.svg"
                   : "notion-image-black.svg"
-              }`}
+                }`}
               alt="Failed To Load"
               className="h-7 w-auto"
               width={1000}
               height={1000}
-            />{" "}
+              />{" "}
+              </Link>
             Notion
           </h4>
         </div>
