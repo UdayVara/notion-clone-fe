@@ -22,7 +22,6 @@ export const fetchDocuments = async (query?:string,getRaw?:boolean) => {
   try {
     let params = {searchTerm:query || "",getRaw:getRaw || false}
     const res = await axiosInstance.get("/document",{params});
-    console.log(res,"res")
     if (res.data?.statusCode == 201) {
       return {
         success: true,
