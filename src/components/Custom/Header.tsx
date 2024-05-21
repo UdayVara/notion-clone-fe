@@ -46,7 +46,7 @@ console.debug(user)
   },[])
   return (
     <>
-      {mount && <div className="w-full fixed top-0 lg:pr-10 lg:pl-7 md:pr-5 md:pl-3 py-2 bg-white flex justify-between items-center dark:bg-[#111111] dark:text-white">
+      {mount && <div className="w-full fixed top-0 lg:pr-10 lg:pl-7 md:pr-5 md:pl-3 py-2 bg-white flex justify-between items-center dark:bg-[#111111] dark:text-white px-2">
         <div className="flex flex-row gap-2 items-center">
           {url != "/" && <RxHamburgerMenu onClick={handleSidebar} />}
           <h4 className="text-black dark:text-white flex  items-center gap-1 text-lg font-semibold">

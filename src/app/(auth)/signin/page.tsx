@@ -39,7 +39,7 @@ function Signin() {
 
   return (
     <>
-      <div className="w-full bg-white dark:bg-[#111111] px-2 py-2 flex flex-row items-center justify-between ">
+      <div className="w-full bg-white dark:bg-[#111111] px-3 py-2 flex flex-row items-center justify-between ">
         <Link href={"/"} className="text-black  dark:text-white flex  items-center gap-1 text-lg font-semibold py-2">
           <img
             src={`/Images/${

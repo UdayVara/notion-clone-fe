@@ -15,7 +15,6 @@ function Archives() {
     if (res.success) {
       console.debug(res.documents);
       dispatch(set(res.documents));
-      toast.success(res.message);
     } else {
       toast.error(res.message);
     }
