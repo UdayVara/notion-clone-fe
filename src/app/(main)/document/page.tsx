@@ -43,7 +43,7 @@ function Page() {
     if (res.success) {
       toast.success(res.message || "Document Created Successfully");
       dispatch(setSelected(res.document?.id));
-      getDocuments()
+      getDocuments();
     } else {
       toast.error(res.message || "Internal Server Error.");
     }
@@ -81,7 +81,9 @@ function Page() {
                   </div>
                 </div>
               ) : (
-                <Editor />
+                <div className="box-content overflow-y-auto max-h-[100%] mt-16">
+                  <Editor />
+                </div>
               )}
             </ResizablePanel>
           </ResizablePanelGroup>
